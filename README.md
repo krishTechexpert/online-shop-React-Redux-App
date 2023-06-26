@@ -20,3 +20,14 @@ HTML, CSS, Javascript,Reactjs, Redux, Redux-Toolkit,React MUI Framework,React Ro
 
 7.) handling pending and error handling using Redux
 
+**How Can start project**
+a.) Go to the project directory such as online-shop-React-Redux-App
+b.) Start React project such as 
+      npm install
+      npm start
+c.) start Json server
+      npx json-server db.json -p 3005
+
+
+
+
