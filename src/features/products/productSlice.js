@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+
+//axios.defaults.baseURL = 'http://localhost:3005';
+
+axios.defaults.baseURL = 'https://main--jazzy-travesseiro-c2c8c5.netlify.app';
+
 const initialState = {
   productsList: [],
   status:'idle'
@@ -12,7 +17,7 @@ const initialState = {
 export const getAllProducts = createAsyncThunk(
   'api/getProducts',
   async () => {
-    const response = await axios.get('http://localhost:3005/products');
+    const response = await axios.get('/products');
     return response.data;
   }
 );
@@ -20,7 +25,7 @@ export const getAllProducts = createAsyncThunk(
 export const singleProducts = createAsyncThunk(
   'api/singleProduct',
   async (id) => {
-    const response = await axios.get(`http://localhost:3005/products/${id}`);
+    const response = await axios.get(`/products/${id}`);
     return response.data;
   }
 );

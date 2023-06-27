@@ -1,5 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+
+//axios.defaults.baseURL = 'http://localhost:3005';
+
+axios.defaults.baseURL = 'https://main--jazzy-travesseiro-c2c8c5.netlify.app';
+
+
 const initialState = {
   cartList: [],
   status:'idle',
@@ -10,14 +16,14 @@ const initialState = {
 export const fetchcartProducts = createAsyncThunk(
   'api/cart/getproducts',
   async () => {
-    const response = await axios.get(`http://localhost:3005/carts`);
+    const response = await axios.get(`/carts`);
     return response.data;
   }
 );
 export const addedTocartProduct = createAsyncThunk(
   'api/cart/addproduct',
   async (item) => {
-    const response = await axios.post(`http://localhost:3005/carts`,{...item,qty:1});
+    const response = await axios.post(`/carts`,{...item,qty:1});
     return response.data;
   }
 );
@@ -25,14 +31,14 @@ export const addedTocartProduct = createAsyncThunk(
 export const deleteCartItems = createAsyncThunk(
   'api/cart/deleteproduct',
   async (id) => {
-    const response = await axios.delete(`http://localhost:3005/carts/${id}`);
+    const response = await axios.delete(`/carts/${id}`);
     return id;
   }
 );
 export const updateCartItems = createAsyncThunk(
   'api/cart/updateproduct',
   async ({id,updateQty,operation}) => {
-    const response = await axios.patch(`http://localhost:3005/carts/${id}`,updateQty);
+    const response = await axios.patch(`/carts/${id}`,updateQty);
     response.data.symbol=operation;
     return response.data;
   }
