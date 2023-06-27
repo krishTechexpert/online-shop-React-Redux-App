@@ -12,7 +12,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename='/online-shop-React-Redux-App'>
+      <BrowserRouter>
         <App />
       </BrowserRouter>
       
