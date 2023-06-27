@@ -1,7 +1,7 @@
 # online-shop-redux-app-basic
 This is simple E-commerce project based on React.
 
-<a href="https://krishtechexpert.github.io/online-shop-React-Redux-App/"></a>
+<a href="https://krishtechexpert.github.io/online-shop-React-Redux-App/">Live Demo</a>
 
 **Technology**:
 HTML, CSS, Javascript,Reactjs, Redux, Redux-Toolkit,React MUI Framework,React Router,JSON-server,react-toastify
