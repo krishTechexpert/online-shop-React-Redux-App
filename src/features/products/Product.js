@@ -71,7 +71,7 @@ export default function Product() {
         <ToastContainer style={{ fontSize: "18px" }} />
         <Grid container spacing={2}>
           {myproduct.map((item) => {
-            return <Grid key={item.id} xs={4}>
+            return <Grid key={item.id} xs={12} md={6} lg={4} >
               <Card sx={{ maxWidth: 345,height:'100%' }}>
                 <CardMedia
                   component="img"
