@@ -8,7 +8,7 @@ HTML, CSS, Javascript,Reactjs, Redux, Redux-Toolkit,React MUI Framework,React Ro
 
 **Features:**
 
-1.) Fetch product API from https://dummyjson.com  using Redux-Toolkit
+1.) Fetch product API from json Server db.json file  using Redux-Toolkit
 
 2.) Create Product details Page
 
