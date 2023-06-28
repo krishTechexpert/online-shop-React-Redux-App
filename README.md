@@ -32,7 +32,7 @@ b.) Start React project such as
       
 c.) start Json server
 
-      npx json-server /src/db.json -p 3005
+      npx json-server ./src/db.json -p 3005
 
 
 
