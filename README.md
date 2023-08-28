@@ -1,6 +1,8 @@
 # online-shop-redux-app-basic
 This is simple E-commerce project based on React.
 
+<a href="https://mobile-eshop.netlify.app/" target="_blank">LIVE DEMO</a>
+
 
 **Technology**:
 HTML, CSS, Javascript,Reactjs, Redux, Redux-Toolkit,React MUI Framework,React Router,JSON-server,react-toastify
