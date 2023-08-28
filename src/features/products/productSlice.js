@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3005';
-
-//axios.defaults.baseURL = 'https://main--jazzy-travesseiro-c2c8c5.netlify.app';
+//axios.defaults.baseURL = 'http://localhost:3005';
+axios.defaults.baseURL = 'https://krishstore.onrender.com/api';
 
 const initialState = {
   productsList: [],

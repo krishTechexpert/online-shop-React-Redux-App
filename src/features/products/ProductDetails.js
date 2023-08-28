@@ -169,12 +169,12 @@ export default function ProductDetails() {
                 <Typography color="text.secondary" variant="body1" sx={{mb:2}}>
                     {product?.description}
                 </Typography>
-                <Typography gutterBottom variant="h6" component="div">
+                <Typography gutterBottom variant="h6" sx={{mb:2}} component="div">
                     Price : ₹{product?.price}
                 </Typography>
-                <Typography color="text.primary" variant="body1" sx={{mb:2}}>
+                {/* <Typography color="text.primary" variant="body1" sx={{mb:2}}>
                     In Stock: <span style={{color:'green'}}>{product?.stock}</span>
-                </Typography>
+                </Typography> */}
               
                 <Button variant="contained" disabled={cartList.find((item) => item.id === product.id)}  onClick={() => addToCartHandler(product)}> {cartList.find((item) => item.id === product.id)  ? <ThumbUpIcon /> :'Add To Cart'} </Button>
                 { cartList.find((item) => item.id === product.id) ?
