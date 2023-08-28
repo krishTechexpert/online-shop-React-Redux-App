@@ -84,8 +84,8 @@ export default function ProductDetails() {
     const product=cartList.find(item => item.id=== id)
    
     // imp here blow line in case of edit
-    if(product.qty>0){
-      dispatch(updateCartItems({id,updateQty:{qty:Math.max(product.qty-1,0)},operation:'Subtract'}))
+    if(product.qty>1){
+      dispatch(updateCartItems({id,updateQty:{qty:product.qty-1},operation:'Subtract'}))
     }
     
   }
