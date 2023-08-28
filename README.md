@@ -32,10 +32,16 @@ b.) Start React project such as
       npm install
       npm start
       
-c.) start Json server
+c.) start Json server just for demo
 
       npx json-server ./src/db.json -p 3005
 
+
+**You can Find db.json**
+
+https://krishstore.onrender.com/api/products
+
+https://krishstore.onrender.com/api/carts
 
 
 
