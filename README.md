@@ -34,6 +34,9 @@ c.) start Json server
 
       npx json-server ./src/db.json -p 3005
 
+**DB.json Deployed**
 
+https://krishstore.onrender.com/api/products
+https://krishstore.onrender.com/api/carts
 
 
