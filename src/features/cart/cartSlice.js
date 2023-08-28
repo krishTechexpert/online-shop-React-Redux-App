@@ -8,7 +8,7 @@ axios.defaults.baseURL = 'https://krishstore.onrender.com/api';
 
 const initialState = {
   cartList: [],
-  status:'idle',
+  status:null,
   totalAmount:0
 };
 
@@ -52,33 +52,35 @@ export const cartSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+    .addCase(fetchcartProducts.fulfilled, (state, action) => {
+      state.status=null;
+      state.cartList=action.payload;
+      state.totalAmount =  state.cartList.map(item => item.price * item.qty).reduce((sum,val) =>sum + val,0)
+    })
+    .addCase(addedTocartProduct.pending, (state, action) => {
+      state.status='pending'
+    })
       .addCase(addedTocartProduct.fulfilled, (state, action) => {
-        state.status='idle';
+        state.status=null;
         state.cartList=[...state.cartList,action.payload];
         state.totalAmount = state.totalAmount + action.payload.price * action.payload.qty 
       })
-      .addCase(fetchcartProducts.fulfilled, (state, action) => {
-        state.status='idle';
-        state.cartList=action.payload;
-        state.totalAmount =  state.cartList.map(item => item.price * item.qty).reduce((sum,val) =>sum + val,0)
+      .addCase(deleteCartItems.pending, (state, action) => {
+        state.status='pending'
       })
       .addCase(deleteCartItems.fulfilled, (state, action) => {
-        state.status='idle';
+        state.status=null;
         const product = state.cartList.find((item) => item.id === action.payload)
         state.totalAmount = state.totalAmount - (product.price * product.qty)
 
         state.cartList= state.cartList.filter(item => item.id !== action.payload)
       })
       .addCase(updateCartItems.fulfilled, (state, action) => {
-        state.status='idle';
+        state.status=null;
         const index= state.cartList.findIndex(item => item.id === action.payload.id)
         state.cartList.splice(index,1,action.payload)
-        if(action.payload.symbol === 'ADD'){
-          state.totalAmount = state.totalAmount + action.payload.price
-        }else{
-          state.totalAmount = state.totalAmount - action.payload.price
-        }
-         
+        state.totalAmount =  state.cartList.map(item => item.price * item.qty).reduce((sum,val) =>sum + val,0)
+               
       });
   },  
 });

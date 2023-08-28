@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://krishstore.onrender.com/api';
 
 const initialState = {
   productsList: [],
-  status:'idle'
+  status:null
 
 };
 
@@ -38,27 +38,31 @@ export const productSlice = createSlice({
     // get All products
     builder
       .addCase(getAllProducts.pending, (state) => {
-        state.status='pending'
+        state.status='pending';
+        state.error=null;
       })
       .addCase(getAllProducts.rejected, (state, action) => {
-        state.status='idle';
+        state.status=null;
         state.error=action.error.message;
       })
       .addCase(getAllProducts.fulfilled, (state, action) => {
-        state.status='idle';
+        state.status=null;
+        state.error=null;
         state.productsList=action.payload;
       })
       // get Single product
       .addCase(singleProducts.pending, (state) => {
         state.status='pending';
+        state.error=null;
         state.singleProduct=null;
       })
       .addCase(singleProducts.rejected, (state, action) => {
-        state.status='idle';
+        state.status=null;
         state.error=action.error.message;
       })
       .addCase(singleProducts.fulfilled, (state, action) => {
-        state.status='idle';
+        state.status=null;
+        state.error=null;
         state.singleProduct=action.payload;
       });
   },

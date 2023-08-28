@@ -26,14 +26,14 @@ export default function Cart() {
   const increaseQtyhandler = (id) => {
     const product = cartList.find(item => item.id === id)
     // imp here blow line in case of edit
-    dispatch(updateCartItems({ id, updateQty: { qty: product.qty + 1 }, operation: 'ADD' }))
+    dispatch(updateCartItems({ id, updateQty: { qty: product.qty + 1 } }))
   }
   const decreaseQtyhandler = (id) => {
     const product = cartList.find(item => item.id === id)
 
     // imp here blow line in case of edit
     if (product.qty > 1) {
-      dispatch(updateCartItems({ id, updateQty: { qty: product.qty - 1 }, operation: 'Subtract' }))
+      dispatch(updateCartItems({ id, updateQty: { qty: product.qty - 1 }}))
     }
 
   }
@@ -93,6 +93,7 @@ export default function Cart() {
               </ButtonGroup>
 
             </div>
+
             <div className="subtotal">{product.price * product.qty}</div>
             <div className="remove">
               <button onClick={() => dispatch(deleteCartItems(product.id))}><DeleteForeverIcon style={{ color: 'red', cursor: 'pointer' }} /></button>
